@@ -1,0 +1,20 @@
+{
+  "name": "http-router-register",
+  "version": "1.0.0",
+  "description": "A the simple plugin using instance of your http router as (Fastify, Restify e HapiJs) auto loaded and register routes.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/israeleriston/http-router-register.git"
+  },
+  "keywords": [],
+  "author": "Israel Ériston <israel.eriston@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/israeleriston/http-router-register/issues"
+  },
+  "homepage": "https://github.com/israeleriston/http-router-register#readme"
+}
