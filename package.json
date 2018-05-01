@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/israeleriston/http-router-register/issues"
   },
-  "homepage": "https://github.com/israeleriston/http-router-register#readme"
+  "homepage": "https://github.com/israeleriston/http-router-register#readme",
+  "devDependencies": {
+    "ava": "^0.25.0"
+  }
 }
