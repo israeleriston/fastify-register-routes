@@ -1,6 +1,6 @@
 'use strict'
 const { pick, isArray } = require('lodash')
-const wrapMiddleware = require('./wrapMiddleware')
+const wrapMiddleware = require('./wrap-middleware')
 
 const toArray = value => isArray(value) ? value : [value]
 
