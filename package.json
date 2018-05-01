@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/israeleriston/http-router-register.git"
   },
-  "keywords": [],
+  "keywords": ["hapi", "fastify", "restify", "register-routes"],
   "author": "Israel Ériston <israel.eriston@gmail.com>",
   "license": "ISC",
   "bugs": {
@@ -20,6 +20,11 @@
   "devDependencies": {
     "ava": "^0.25.0",
     "eslint": "^4.19.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-standard": "^3.1.0",
     "fastify": "^1.3.1",
     "hapi": "^17.4.0",
     "restify": "^7.1.1"
