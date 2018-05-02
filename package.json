@@ -4,7 +4,7 @@
   "description": "A the simple plugin using instance of your http router as (Fastify, Restify e HapiJs) auto loaded and register routes.",
   "main": "src/index.js",
   "scripts": {
-    "test": "ava **/*.test.js -v -w "
+    "test": "ava **/*.test.js -v "
   },
   "repository": {
     "type": "git",

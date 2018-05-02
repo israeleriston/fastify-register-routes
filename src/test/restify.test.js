@@ -10,9 +10,9 @@ const registerRouter = require('../register-routes-by-path')
 
 const restify = Restify.createServer()
 
-test('Validate restify instance data entry', t => {
-	const defaultPath = path.join(__dirname, './default-routes')
-	registerRouter(restify, defaultPath)
+test('validate restify instance data entry', t => {
+  const defaultPath = path.join(__dirname, './default-routes')
+  registerRouter(restify, defaultPath)
 
-	t.pass('All Routes registred with success!')
+  t.pass('All Routes registred with success!')
 })
