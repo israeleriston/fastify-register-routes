@@ -1,7 +1,7 @@
 {
-  "name": "http-router-register",
+  "name": "fastify-register-routes",
   "version": "1.0.0",
-  "description": "A the simple plugin using instance of your http router as (Fastify, Restify e HapiJs) auto loaded and register routes.",
+  "description": "fastify register routes is a simple plugin that contains an scheme the auto registration the routes to fastify.",
   "main": "src/index.js",
   "scripts": {
     "test": "ava **/*.test.js -v "
@@ -11,10 +11,9 @@
     "url": "git+https://github.com/israeleriston/http-router-register.git"
   },
   "keywords": [
-    "hapi",
     "fastify",
-    "restify",
-    "register-routes"
+    "register-routes",
+    "auto-load"
   ],
   "author": "Israel Ériston <israel.eriston@gmail.com>",
   "license": "ISC",
@@ -24,19 +23,17 @@
   "homepage": "https://github.com/israeleriston/http-router-register#readme",
   "devDependencies": {
     "ava": "^0.25.0",
-    "axios": "^0.18.0",
     "eslint": "^4.19.1",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-promise": "^3.7.0",
     "eslint-plugin-standard": "^3.1.0",
-    "fastify": "^1.3.1",
-    "hapi": "^17.4.0",
-    "restify": "^7.1.1"
+    "fastify": "^1.3.1"
   },
   "dependencies": {
     "boom": "^7.2.0",
+    "fastify-plugin": "^1.0.1",
     "filter-files": "^0.4.0",
     "is-directory": "^0.3.1",
     "lodash": "^4.17.10",
