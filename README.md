@@ -2,20 +2,22 @@
 > fastify register routes (fastify-register-routes) is a simple plugin that contains an scheme the auto-loading file, auto registration the routes and a wrap handler to a router. And following with packages that are using day-to-day to developing the api, whats that's Boom, Lodash and table (to showing an table within with all routes registred's)
 
 
-## How to install
+## Install
 
-`npm i fastify-register-routes --save`
+`npm i fastify-register-routes `
 
 
-## How do use
+## Usage
 
 ### Options
 
 * `regex`: You regex to test file name the router Ex.: user-router.js
-  if nothing is informed I'll use the regex standard `js /((Route)|(Routes)|(route)|(routes))\.js|.mjs$/ js`
+  if nothing is informed I'll use the regex standard `/((Route)|(Routes)|(route)|(routes))\.js|.mjs$/`.
 
 * `showTable`: After loaded all routes, will showind one table
-  with all routes registred's by default value is false
+  with all routes registred's by default value is false.
+
+* `path`: Path is used to reference the directory for reading files, therefore, is `required.
 
 
 ```js
@@ -25,15 +27,17 @@ const registerRoutes = require('fastify-register-routes')
 
 const fastify = Fastify()
 
-const opts = {
-  regex: /((Route)|(Routes))\.js|.mjs$/,
-  showTable: true
-}
-
 // path with your's routes files
 const defaultPath = path.join(__dirname, './routes')
 
-registerRoutes(fastify, defaultPath, opts)
+const opts = {
+  regex: /((Route)|(Routes))\.js|.mjs$/,
+  showTable: true,
+  path: defaultPath
+}
+
+
+fastify.register(registerRoutes(opts))
 
 // case need confering routes registred's
 // fastify provide an log with the routes loaded

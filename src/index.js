@@ -2,7 +2,7 @@ const fp = require('fastify-plugin')
 const registerRouter = require('./register-routes-by-path')
 
 function registerRoutes (instance, options, next) {
-  registerRouter(instance, options)
+  registerRouter(instance, options, next)
   next()
 }
 

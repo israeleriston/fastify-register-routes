@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/israeleriston/http-router-register.git"
+    "url": "git+https://github.com/israeleriston/fastify-register-routes.git"
   },
   "keywords": [
     "fastify",
@@ -16,11 +16,11 @@
     "auto-load"
   ],
   "author": "Israel Ériston <israel.eriston@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/israeleriston/http-router-register/issues"
+    "url": "https://github.com/israeleriston/fastify-register-routes/issues"
   },
-  "homepage": "https://github.com/israeleriston/http-router-register#readme",
+  "homepage": "https://github.com/israeleriston/fastify-register-routes#readme",
   "devDependencies": {
     "ava": "^0.25.0",
     "eslint": "^4.19.1",

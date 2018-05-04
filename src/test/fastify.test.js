@@ -6,13 +6,17 @@ const Fastify = require('fastify')
 
 const path = require('path')
 
-const registerRouter = require('../register-routes-by-path')
+const registerRoutes = require('../index.js')
 
 test('validate data entry register routes ', t => {
   const fastify = Fastify()
   const defaultPath = path.join(__dirname, './routes')
 
-  registerRouter(fastify, defaultPath)
+  fastify.register(registerRoutes, {
+    path: defaultPath
+  })
+
+  fastify.ready(() => {})
 
   t.pass()
 })
@@ -21,12 +25,11 @@ test('entry options regex filename', t => {
   const fastify = Fastify()
   const defaultPath = path.join(__dirname, './routes')
 
-  const opts = {
+  fastify.register(registerRoutes, {
     regex: /((Route)|(Routes))\.js|.mjs$/,
-    showTable: false
-  }
-
-  registerRouter(fastify, defaultPath, opts)
+    showTable: false,
+    path: defaultPath
+  })
 
   t.pass()
 })
@@ -35,11 +38,10 @@ test('entry options show table is false', t => {
   const fastify = Fastify()
   const defaultPath = path.join(__dirname, './routes')
 
-  const opts = {
-    showTable: false
-  }
-
-  registerRouter(fastify, defaultPath, opts)
+  fastify.register(registerRoutes, {
+    showTable: false,
+    path: defaultPath
+  })
 
   t.pass()
 })
@@ -48,11 +50,10 @@ test('entry options show table is true', t => {
   const fastify = Fastify()
   const defaultPath = path.join(__dirname, './routes')
 
-  const opts = {
-    showTable: true
-  }
-
-  registerRouter(fastify, defaultPath, opts)
+  fastify.register(registerRoutes, {
+    showTable: true,
+    path: defaultPath
+  })
 
   t.pass()
 })
