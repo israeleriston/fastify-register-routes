@@ -1,8 +1,8 @@
 const get = {
-  name: 'user-get',
+  name: 'user-post',
   version: '1.0.0',
-  path: '/getRoutes',
-  method: 'get',
+  path: '/post-route',
+  method: 'post',
   handler: (req, reply) => {
     const payload = {
       hello: 'world'

@@ -1,8 +1,8 @@
 const get = {
-  name: 'user-get',
+  name: 'user-delete',
   version: '1.0.0',
-  path: '/get-routes',
-  method: 'get',
+  path: '/delete-route',
+  method: 'delete',
   handler: (req, reply) => {
     const payload = {
       hello: 'world'

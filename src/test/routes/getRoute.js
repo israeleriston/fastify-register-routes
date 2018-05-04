@@ -1,7 +1,7 @@
 const get = {
   name: 'user-get',
   version: '1.0.0',
-  path: '/getRoute',
+  path: '/get-route',
   method: 'get',
   handler: (req, reply) => {
     const payload = {
