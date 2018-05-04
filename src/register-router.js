@@ -1,5 +1,5 @@
 'use strict'
-const { pick, isArray, flatten } = require('lodash')
+const { pick, isArray } = require('lodash')
 const wrapMiddleware = require('./wrap-middleware')
 
 const toArray = value => isArray(value) ? value : [value]
@@ -38,11 +38,11 @@ const getHandlers = route => {
  * @param  {Object}         route  object
  */
 const registerRoutes = (server, route) => {
-  const { method } = route
-  const opts = pick(route, ['path', 'name', 'version'])
-  const handlers = () => getHandlers(route)
+  const { method, path } = route
+  const opts = pick(route, ['name', 'version'])
+  const handlers = getHandlers(route)
 
-  server[method](opts, handlers)
+  server[method](path, opts, ...handlers)
 }
 
 module.exports = registerRoutes
