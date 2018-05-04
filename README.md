@@ -12,10 +12,11 @@
 ### Options
 
 * `regex`: You regex to test file name the router Ex.: user-router.js
-  if nothing is informed I'll use the standard `/((Route)|(Routes)|(route)|(routes))\.js|.mjs$/`
+  if nothing is informed I'll use the regex standard `js /((Route)|(Routes)|(route)|(routes))\.js|.mjs$/ js`
 
 * `showTable`: After loaded all routes, will showind one table
   with all routes registred's by default value is false
+
 
 ```js
 const path = require('path')
@@ -46,6 +47,23 @@ fastify.listen(3000, '127.0.0.1', err => {
   console.log(`Listen ${fastify.address().port}`)
 })
 
+```
+
+### Options for Routes
+
+* `useWrap`: use a flag useWrap with value true, is an envelope of handler methods, i see below
+
+
+```js
+module.exports = {
+  path: '/some-route',
+  handler: wrapMiddleware((req, res) => {
+    const usersRepo = req.$repositories.users
+    const data = req.body
+    return usersRepo.create(data)
+      .then(user => ({ data: user }))
+  })
+}
 ```
 
 ## disclaimer
