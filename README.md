@@ -30,14 +30,11 @@ const fastify = Fastify()
 // path with your's routes files
 const defaultPath = path.join(__dirname, './routes')
 
-const opts = {
+fastify.register(registerRoutes, {
   regex: /((Route)|(Routes))\.js|.mjs$/,
   showTable: true,
   path: defaultPath
-}
-
-
-fastify.register(registerRoutes(opts))
+})
 
 // case need confering routes registred's
 // fastify provide an log with the routes loaded
