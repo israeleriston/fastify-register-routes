@@ -1,5 +1,5 @@
 # Fastify Register Routes
-> fastify register routes (fastify-register-routes) is a simple plugin that contains an scheme the auto-loading file, auto registration the routes and a wrap handler to a router. And following with packages that are using day-to-day to developing the api, whats that's Boom, Lodash and table (to showing an table within with all routes registred's)
+> fastify register routes (fastify-register-routes) Plugin to automatically load routes from a specified path and optionally limit loaded file names by a regular expression.
 
 
 ## Install
