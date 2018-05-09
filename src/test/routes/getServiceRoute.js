@@ -9,7 +9,7 @@ const action02 = () => {
 const get = {
   name: 'user-get',
   version: '1.0.0',
-  path: '/get-route',
+  path: '/get-route-service',
   method: 'get',
   service: [ action01, action02 ],
   handler: (req, reply) => {

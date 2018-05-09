@@ -32,14 +32,9 @@ const getHandlers = route => {
   return handlers
 }
 
-const wrapService = route => {
-  // const { server, service } = pick(route, ['service', 'server'])
-  const { server, service } = route
+const wrapService = (server, route) => {
+  const service = pick(route, ['service'])
   if (service) {
-    // const inject = service.reduce((acc, cur) => {
-    //   return acc[cur]
-    // }, {})
-    console.log('service inject', service)
     server.decorateRequest('$service', { ...service })
   }
 }
@@ -53,9 +48,7 @@ const registerRoutes = (server, route) => {
   const { method, path } = route
   const opts = pick(route, ['name', 'version'])
   const handlers = getHandlers(route)
-  console.log('route', route)
   wrapService(server, route)
-
   server[method](path, opts, ...handlers)
 }
 
