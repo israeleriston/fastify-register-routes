@@ -5,7 +5,7 @@ const path = require('path')
 
 test('entry options for injecting array the services ', t => {
   const fastify = Fastify()
-  const defaultPath = path.join(__dirname, './routes')
+  const defaultPath = path.join(__dirname, './routes-service')
 
   fastify.register(registerRoutes, {
     showTable: true,
