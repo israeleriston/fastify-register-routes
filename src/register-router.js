@@ -32,13 +32,6 @@ const getHandlers = route => {
   return handlers
 }
 
-const wrapService = (server, route) => {
-  const service = pick(route, ['service'])
-  if (service) {
-    server.decorateRequest('$service', { ...service })
-  }
-}
-
 /**
  * @method registerRoute
  * @param  {Instance}       server instance
@@ -46,9 +39,8 @@ const wrapService = (server, route) => {
  */
 const registerRoutes = (server, route) => {
   const { method, path } = route
-  const opts = pick(route, ['name', 'version'])
+  const opts = pick(route, ['name', 'version', 'service'])
   const handlers = getHandlers(route)
-  wrapService(server, route)
   server[method](path, opts, ...handlers)
 }
 

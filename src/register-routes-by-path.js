@@ -2,6 +2,7 @@
 const loadRoutesByPath = require('./load-files')
 const registerRoutes = require('./register-router')
 const displayRoutes = require('./display-routes')
+const registerService = require('./register-service')
 const { isUndefined } = require('lodash')
 
 function registerRouter (server, options, next) {
@@ -12,6 +13,9 @@ function registerRouter (server, options, next) {
   const routes = loadRoutesByPath(dirname, options)
 
   routes.forEach(route => registerRoutes(server, route))
+
+  registerService(server)
+
   if (!isUndefined(options.showTable) && options.showTable) {
     displayRoutes(routes)
   }
