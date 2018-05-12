@@ -90,7 +90,6 @@ const get = {
   path: '/get-route',
   method: 'get',
   service: [ action01, action02 ],
-  //
   handler: (req, reply) => {
     const action = req.$service.action01()
     return reply.send({ payload: action })
@@ -102,7 +101,8 @@ const get = {
 
 ```js
  // middleware.js file
- // don't you import much services methods within you logic, you will only need inject on http-route, its file the routes.
+ // don't you import much services methods within you logic,
+ // you will only need inject on http-route, its file the routes.
 
 const createUser = (req, reply) => {
   const userNews = req.$service.createUser(req.body)
@@ -120,7 +120,7 @@ const createUser = (user) => User.create(user)
 // example of uses
 
 
-const get = {
+const userRoute = {
   name: 'user-create',
   version: '1.2.1',
   path: '/user-create',
