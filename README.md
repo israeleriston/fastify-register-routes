@@ -17,7 +17,11 @@
 * `showTable`: After loaded all routes, will showind one table
   with all routes registred's by default value is false.
 
-* `path`: Path is used to reference the directory for reading files, therefore, is `required.
+* `path`: Path is used to reference the directory for reading files, therefore, is `required`.
+
+* `useService`: allowed injecting methods of services inside the fastify `Request` object.
+  Accepts as an argument a list of functions, exemple below.
+
 
 
 ```js
@@ -64,6 +68,65 @@ module.exports = {
     return usersRepo.create(data)
       .then(user => ({ data: user }))
   })
+}
+```
+
+## Options for method's services Injected at routes
+
+```js
+const action01 = () => {
+  // same code here
+  return 'action01'
+}
+
+const action02 = () => {
+  // your logic here!
+  return 'action02'
+}
+
+const get = {
+  name: 'user-get',
+  version: '1.0.0',
+  path: '/get-route',
+  method: 'get',
+  service: [ action01, action02 ],
+  //
+  handler: (req, reply) => {
+    const action = req.$service.action01()
+    return reply.send({ payload: action })
+  }
+}
+
+```
+## Other Examples using services injections.
+
+```js
+ // middleware.js file
+ // don't you import much services methods within you logic, you will only need inject on http-route, its file the routes.
+
+const createUser = (req, reply) => {
+  const userNews = req.$service.createUser(req.body)
+  // Wow! it's simple!
+}
+
+
+// service.js
+// example of service
+const createUser = (user) => User.create(user)
+
+
+
+// route.js
+// example of uses
+
+
+const get = {
+  name: 'user-create',
+  version: '1.2.1',
+  path: '/user-create',
+  method: 'post',
+  service: [ createUser ],
+  handler: middleware.createUser
 }
 ```
 
