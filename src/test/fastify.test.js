@@ -57,3 +57,4 @@ test('entry options show table is true', t => {
 
   t.pass()
 })
+

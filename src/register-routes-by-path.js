@@ -13,9 +13,10 @@ const { pick } = require('lodash')
  * @param  {Function}    next
  */
 function registerRouter (server, options, next) {
-  const opts = pick(options, ['path', 'showTable'])
+  const opts = pick(options, ['path', 'showTable', 'useService'])
   const dirname = opts.path
   const showTable = opts.showTable || false
+  const useService = opts.useService || false
 
   if (!dirname) {
     return next(new Error('`path` parameter is required to load files'))
@@ -24,7 +25,9 @@ function registerRouter (server, options, next) {
 
   routes.forEach(route => registerRoutes(server, route))
 
-  registerService(server)
+  if (useService) {
+    registerService(server)
+  }
 
   if (showTable) {
     displayRoutes(routes)

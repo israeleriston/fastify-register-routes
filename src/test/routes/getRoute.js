@@ -1,9 +1,9 @@
 const action01 = () => {
-  console.log('action -> 01')
+  return 'action01'
 }
 
 const action02 = () => {
-  console.log('action -> 02')
+  return 'action02'
 }
 
 const get = {
@@ -13,10 +13,8 @@ const get = {
   method: 'get',
   service: [ action01, action02 ],
   handler: (req, reply) => {
-    const payload = {
-      hello: 'world'
-    }
-    return reply.send(payload)
+    const action = req.$service.action01()
+    return reply.send({ payload: action })
   }
 }
 
