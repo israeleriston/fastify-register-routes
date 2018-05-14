@@ -1,4 +1,21 @@
 # Fastify Register Routes
+
+[![GitHub issues](https://img.shields.io/github/issues/israeleriston/fastify-register-routes.svg)](https://github.com/israeleriston/fastify-register-routes/issues)
+
+
+[![GitHub forks](https://img.shields.io/github/forks/israeleriston/fastify-register-routes.svg)](https://github.com/israeleriston/fastify-register-routes/network)
+
+
+
+[![GitHub stars](https://img.shields.io/github/stars/israeleriston/fastify-register-routes.svg)](https://github.com/israeleriston/fastify-register-routes/stargazers)
+
+
+
+[![GitHub license](https://img.shields.io/github/license/israeleriston/fastify-register-routes.svg)](https://github.com/israeleriston/fastify-register-routes/blob/master/LICENSE)
+
+
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)[![NPM downloads](https://img.shields.io/npm/dm/fastify-register-routes.svg?style=flat)](https://www.npmjs.com/package/fastify-register-routes)
+
 > fastify register routes (fastify-register-routes) Plugin to automatically load routes from a specified path and optionally limit loaded file names by a regular expression.
 
 
