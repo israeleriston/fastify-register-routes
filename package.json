@@ -1,6 +1,6 @@
 {
   "name": "fastify-register-routes",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "fastify register routes is a simple plugin that contains an scheme the auto registration the routes to fastify.",
   "main": "src/index.js",
   "scripts": {
