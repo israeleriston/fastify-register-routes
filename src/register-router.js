@@ -40,7 +40,7 @@ const getHandlers = route => {
  */
 const registerRoutes = (server, route) => {
   const { method, path } = route
-  const opts = pick(route, ['name', 'version', 'service'])
+  const opts = pick(route, ['name', 'version', 'service', 'schema'])
   const handlers = getHandlers(route)
   server[method](path, opts, ...handlers)
 }
