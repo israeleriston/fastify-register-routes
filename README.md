@@ -28,6 +28,7 @@
 
 * `schema`: In your routes, you can define the schema, according to the documentation of fastify,
  this parameter is optional, you just need to inform `schema: you-schema`
+ consult the documentation of fastify, see other examples [here](https://github.com/fastify/fastify/blob/master/docs/Routes.md)
 
 
 ```js
@@ -77,10 +78,24 @@ module.exports = {
 }
 ```
 
-## Options for method's services Injected at routes
+## Options for method's services Injected and Scheme at routes
 
 ```js
-const schema = require('./schema')
+// by default, is used ajv for validation schemes.
+const schema = {
+  querystring: {
+    name: { type: 'string' },
+    excitement: { type: 'integer' }
+  },
+  response: {
+    200: {
+      type: 'object',
+      properties: {
+        hello: { type: 'string' }
+      }
+    }
+  }
+}
 
 const action01 = () => {
   // same code here
@@ -97,7 +112,6 @@ const get = {
   version: '1.0.0',
   path: '/get-route',
   // your scheme here, any questions, consult the documentation of fastify.
-  // see other examples [here](https://github.com/fastify/fastify/blob/master/docs/Routes.md)
   schema: schema,
   method: 'get',
   service: [ action01, action02 ],
