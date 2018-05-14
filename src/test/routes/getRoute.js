@@ -1,5 +1,3 @@
-const schema = require('schema/create-schema')
-
 const action01 = () => {
   return 'action01'
 }
@@ -13,7 +11,6 @@ const get = {
   version: '1.0.0',
   path: '/get-route',
   method: 'get',
-  schema: schema,
   service: [ action01, action02 ],
   handler: (req, reply) => {
     const action = req.$service.action01()

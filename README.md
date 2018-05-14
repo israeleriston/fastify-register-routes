@@ -26,6 +26,8 @@
 * `useService`: allowed injecting methods of services inside the fastify `Request` object.
   Accepts as an argument a list of functions, exemple below.
 
+* `schema`: In your routes, you can define the schema, according to the documentation of fastify,
+ this parameter is optional, you just need to inform `schema: you-schema`
 
 
 ```js
@@ -78,6 +80,8 @@ module.exports = {
 ## Options for method's services Injected at routes
 
 ```js
+const schema = require('./schema')
+
 const action01 = () => {
   // same code here
   return 'action01'
@@ -92,6 +96,9 @@ const get = {
   name: 'user-get',
   version: '1.0.0',
   path: '/get-route',
+  // your scheme here, any questions, consult the documentation of fastify.
+  // see other examples [here](https://github.com/fastify/fastify/blob/master/docs/Routes.md)
+  schema: schema,
   method: 'get',
   service: [ action01, action02 ],
   handler: (req, reply) => {

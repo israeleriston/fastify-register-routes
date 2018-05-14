@@ -25,6 +25,7 @@ test('test of inject service using req.$service', async t => {
     t.deepEqual(res.statusCode, 200)
     t.deepEqual(JSON.parse(res.payload), { payload: 'action01' })
     t.pass()
+    return res.payload
   }).catch(err => {
     console.log('err', err)
     t.throws(err)
