@@ -1,6 +1,6 @@
 'use strict'
 
-const { pick, isEmpty } = require('lodash')
+const { pick } = require('lodash')
 
 /**
 * @method toParseObject
@@ -24,17 +24,29 @@ const toObject = ({ service }) => service.reduce(toParseObject, {})
 const parseService = services => toObject(services)
 
 /**
+ * @description Get a current route using onRequest
+ * @method getRoute
+ * @param  {Array|Route} routes routes of all application
+ * @param  {String} url  current url the request
+ */
+const getRoute = (routes, url) => routes.filter(route => url.includes(route.path))
+
+/**
 * @method registerDecorate
 * @param {Object|Instance} server
 **/
-const registerDecorate = server => {
-  server.addHook('onRoute', route => {
-    const services = pick(route, ['service'])
+const registerDecorate = (server, routes) => {
+  server.addHook('onRequest', (req, reply, next) => {
+    const { url } = req
+    const route = getRoute(routes, url)
 
-    if (!isEmpty(services)) {
+    const services = pick(...route, ['service'])
+
+    if (services) {
       const service = parseService(services)
       server.decorateRequest('$service', service)
     }
+    next()
   })
 }
 
@@ -42,8 +54,8 @@ const registerDecorate = server => {
  * @method registerService
  * @param  {Object|Instance}    server
  */
-const registerService = server => {
-  registerDecorate(server)
+const registerService = (server, routes) => {
+  registerDecorate(server, routes)
 }
 
 module.exports = registerService

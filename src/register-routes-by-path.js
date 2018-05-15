@@ -26,7 +26,7 @@ function registerRouter (server, options, next) {
   routes.forEach(route => registerRoutes(server, route))
 
   if (useService) {
-    registerService(server)
+    registerService(server, routes)
   }
 
   if (showTable) {

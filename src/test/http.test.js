@@ -8,7 +8,7 @@ const path = require('path')
 
 const registerRoutes = require('../index')
 
-test('test of inject service using req.$service', async t => {
+test('test of inject service within request GET `/get-route` ', async t => {
   const fastify = Fastify()
   const defaultPath = path.join(__dirname, './routes')
 
@@ -27,7 +27,29 @@ test('test of inject service using req.$service', async t => {
     t.pass()
     return res.payload
   }).catch(err => {
-    console.log('err', err)
+    t.throws(err)
+  })
+})
+
+test('test of inject service within request POST `/get-route` ', async t => {
+  const fastify = Fastify()
+  const defaultPath = path.join(__dirname, './routes')
+
+  fastify.register(registerRoutes, {
+    showTable: false,
+    path: defaultPath,
+    useService: true
+  })
+
+  await fastify.inject({
+    method: 'POST',
+    url: '/post-route'
+  }).then(res => {
+    t.deepEqual(res.statusCode, 200)
+    t.deepEqual(JSON.parse(res.payload), { payload: 'action02' })
+    t.pass()
+    return res.payload
+  }).catch(err => {
     t.throws(err)
   })
 })
