@@ -4,7 +4,8 @@
   "description": "fastify register routes is a simple plugin that contains an scheme the auto registration the routes to fastify.",
   "main": "src/index.js",
   "scripts": {
-    "test": "ava **/*.test.js -v "
+    "test": "ava **/*.test.js -v ",
+    "coveralls": "nyc --reporter=html --reporter=text yarn run test -- ",
   },
   "repository": {
     "type": "git",
