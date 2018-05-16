@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "ava **/*.test.js -v ",
-    "coveralls": "nyc --reporter=html --reporter=text yarn run test -- ",
+    "coveralls": "nyc --reporter=html --reporter=text yarn run test -- "
   },
   "repository": {
     "type": "git",
